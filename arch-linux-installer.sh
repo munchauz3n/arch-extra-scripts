@@ -696,9 +696,9 @@ function setup_gnome_environment() {
            gnome-remote-desktop gnome-screenshot gnome-session gnome-settings-daemon gnome-shell \
            gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-tweaks gnome-weather \
            gnome-themes-extra gnome-user-docs gnome-user-share gnome-video-effects gnome-software \
-           gnome-icon-theme-extras gnome-firmware gnome-keyring networkmanager mutter nautilus \
-           power-profiles-daemon sushi gvfs yelp guake system-config-printer pulseaudio pavucontrol \
-           dav1d x265 vlc 1> /dev/null 2>&1
+           gnome-icon-theme-extras gnome-firmware keeppassxc networkmanager mutter nautilus guake \
+           power-profiles-daemon sushi gvfs yelp system-config-printer pulseaudio pavucontrol \
+           wayland-protocols dav1d x265 vlc 1> /dev/null 2>&1
 
   # Check pacstrap return value.
   [[ $? == +(1|255) ]] && { msg error "Failed to install GNOME packages!"; exit 1; }
@@ -724,13 +724,12 @@ function setup_kde_environment() {
   msg log "Installing KDE packages..."
   pacstrap ${TMPDIR} plasma-workspace plasma-desktop plasma-nm plasma-pa plasma-systemmonitor \
            plasma-wayland-protocols plasma-disks plasma-workspace-wallpapers plasma-thunderbolt \
-           plasma-vault plasma-browser-integration plasma-firewall kdeplasma-addons kinfocenter\
-           kscreen kgamma kjournald kdialog kcron kwallet-pam kwalletmanager ksshaskpass konsole \
-           kweather ksystemlog krdp kjournald kdeconnect kwrited drkonqi xdg-desktop-portal-kde \
-           kde-gtk-config dolphin breeze breeze-gtk oxygen oxygen-sounds networkmanager sweeper \
-           discover wayland-protocols power-profiles-daemon powerdevil bluedevil partitionmanager \
-           spectacle gwenview kate yakuake qalculate-qt pulseaudio pavucontrol print-manager \
-           system-config-printer dav1d x265 vlc 1> /dev/null 2>&1
+           plasma-browser-integration plasma-firewall kdeplasma-addons kinfocenter kscreen kgamma \
+           kjournald kdialog kcron konsole kweather ksystemlog krdp kjournald kdeconnect kwrited \
+           kcrash drkonqi kde-gtk-config dolphin breeze breeze-gtk oxygen oxygen-sounds sweeper \
+           networkmanager keeppassxc discover wayland-protocols power-profiles-daemon powerdevil \
+           bluedevil spectacle gwenview kate yakuake kcalc pulseaudio pavucontrol partitionmanager \
+           print-manager system-config-printer dav1d x265 vlc 1> /dev/null 2>&1
 
   # Check pacstrap return value.
   [[ $? == +(1|255) ]] && { msg error "Failed to install KDE packages!"; exit 1; }
@@ -766,8 +765,9 @@ function setup_xfce_environment() {
            xfce4-appfinder xfce4-panel xfce4-power-manager xfce4-session xfce4-pulseaudio-plugin \
            xfce4-taskmanager xfce4-screenshooter xfce4-notifyd xfce4-xkb-plugin xfce4-mount-plugin \
            xfce4-whiskermenu-plugin xfce4-battery-plugin xfce4-sensors-plugin xfce4-settings \
-           xfce4-terminal xfce4-screensaver pulseaudio pavucontrol xfdesktop xfconf networkmanager \
-           network-manager-applet system-config-printer blueman dav1d x265 vlc 1> /dev/null 2>&1
+           xfce4-terminal xfce4-screensaver pulseaudio pavucontrol xfdesktop xfconf keeppassxc \
+           networkmanager  network-manager-applet system-config-printer blueman \
+           dav1d x265 vlc 1> /dev/null 2>&1
 
   # Check pacstrap return value.
   [[ $? == +(1|255) ]] && { msg error "Failed to install XFCE packages!"; exit 1; }
